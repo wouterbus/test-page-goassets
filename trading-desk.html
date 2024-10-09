@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Grid with Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.container-trading-desk {
+    text-align: center;
+    width: 90%;
+}
+
+.trading-desk-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+/* Grid styling for left and right */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+    font-size: 16px;
+    min-width: 200px;
+    min-height: 100px;
+}
+
+/* Image container for the center column */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-container {
+        margin: 20px 0;
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Left grid -->
+            <div class="grid">
+                <div class="box">KYC, AML, LGPD</div>
+                <div class="box">Opportunity Assessment</div>
+                <div class="box">Asset Acquisition</div>
+                <div class="box">Revenue Monitoring</div>
+            </div>
+            <!-- Center image -->
+            <div class="lottie-container" id="lottie"></div>
+            <!-- Right grid -->
+            <div class="grid">
+                <div class="box">KYC, AML, LGPD</div>
+                <div class="box">Opportunity Assessment</div>
+                <div class="box">Asset Acquisition</div>
+                <div class="box">Revenue Monitoring</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

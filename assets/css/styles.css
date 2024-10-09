@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* ------------------ DEFAULT STYLING-------------------*/
+
+:root {
+    --main-font: 'Montserrat', sans-serif;
+    --main-color: #000000;
+    --main-bg-color: #f9f9f9;
+    
+    --primary-blue: #006EE3;
+    --primary-blue-80: rgba(0, 110, 227, 0.8);
+    --primary-blue-60: rgba(0, 110, 227, 0.6);
+    --primary-blue-40: rgba(0, 110, 227, 0.4);
+    --primary-blue-20: rgba(0, 110, 227, 0.2);
+
+
+    --primary-green: #9FF425;
+    --primary-green-80: rgba(157, 244, 37, 0.8);
+    --primary-green-60: rgba(157, 244, 37, 0.6);
+    --primary-green-40: rgba(157, 244, 37, 0.4);
+    --primary-green-20: rgba(157, 244, 37, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+    line-height: 1.6;
+    color: var(--main-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--main-font);
+    color: var(--main-color);
+    line-height: normal;
+    letter-spacing: -.7px;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 60px;
+    letter-spacing: -.7px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+h4 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+h5 {
+    font-size: 24px;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0px 40px ;
+}
+
+button, .btn {
+    position: relative;
+    display: inline-block;
+    padding: 16px 55px;
+    font-size: 16px;
+    font-family: var(--main-font);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 400;
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-blue); 
+    transition: left 0.5s ease;
+    border-radius: 25px 0 0 25px; 
+    z-index: -1;
+}
+
+.btn-default {
+    background-color: var(--main-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-blue); 
+}
+
+.btn-secondary {
+    background-color: var(--primary-green); 
+}
+
+/* Hover effects */
+.btn-default:hover::before {
+    background-color: var(--primary-blue); 
+    left: 0; 
+    border-radius: 0 25px 25px 0; 
+}
+
+.btn-primary:hover::before {
+    background-color: var(--main-color); 
+    left: 0;
+    border-radius: 0 25px 25px 0; 
+}
+
+.btn-secondary:hover::before {
+    background-color: var(--main-color); 
+    left: 0;
+    border-radius: 0 25px 25px 0; 
+}
+
+.btn:hover span {
+    display: inline-block;
+    transform: scale(1.1) translateX(-20px); 
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px; 
+    height: 16px; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L4 10h5v8h6v-8h5L12 2z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+
+.btn::after {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 45px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 16px;
+    }
+
+    button, .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* ------------------ BOX STYLING -------------------*/
+
+.container-cards {
+    background-color: #F9F9F9;
+    padding: 40px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1440px;
+    width: 100%; 
+    flex-wrap: wrap; 
+}
+
+.capture-container, .management-container, .orgination-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1; 
+    max-width: 33.33%; 
+    box-sizing: border-box; 
+}
+
+.light-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 40px 30px 40px 40px;
+    border: 10px solid rgba(211, 211, 211, 0.15);
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out;
+    height: 240px;
+}
+
+.light-box img {
+    width: 70px;
+}
+
+.light-box:hover {
+    background-color: #9ef426;
+    border: 10px solid #cbf78e;
+}
+
+.light-box:hover p {
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: fl;
+}
+
+@media (max-width: 1200px) {
+    .capture-container, .management-container, .orgination-container {
+        max-width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .light-box {
+        height: inherit;
+    }
+    .how-btn {
+        display: none;
+    }
+}
+
+.title {
+    width: 100%;
+    text-align: center; 
+    margin-bottom: 40px; 
+    color: var(--main-color); 
+}
+
+.container-cards {
+    background-color: #F9F9F9;
+    padding: 40px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1440px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+h4.subtitle {
+    text-align: center;
+}
+
+/* COLUMNS DEFAULT */
+
+.container-what-do-we-do {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px; /* Max width is set to 1440px */
+    width: 100%; /* Ensure it takes up the full width until max-width is reached */
+    padding: 0;
+    margin: 90px auto; /* Center the container */
+    gap: 40px;
+}
+
+.contents p {
+    margin-left: 8%;
+}
+
+.bars {
+    flex-shrink: 0;
+    margin-left: 0;
+}
+
+.bars img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.contents {
+    flex-grow: 1;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+@media (min-width:768px) {
+    .contents button {
+        margin-left: 8%;
+    }
+}
+
+/* Apply this rule for screens larger than 1440px */
+@media (min-width: 1440px) {
+    .container-what-do-we-do {
+        max-width: inherit;
+    }
+    .contents {
+        width: 40%; /* 80% of available space next to the image */
+    }
+
+    .contents p {
+        max-width: 800px;
+    }
+
+    .bars {
+        width: 40%; /* Image takes 20% of the available space */
+    }
+
+}
+
+.container-what-do-we-do p {
+    padding-right: 40px;
+    padding-left: 0;
+}
+
+.container-what-do-we-do button {
+    margin-top: 30px;
+}
+
+
+/* --------- TRADING DESK SECTION --------*/
+
+
+.container-trading-desk {
+    text-align: center;
+    max-width:1440px;
+    margin: 0 auto;
+}
+
+.trading-desk-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+/* Grid styling for left and right */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    padding: 40px;
+    border: 10px solid rgba(211, 211, 211, 0.07);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Image container for the center column */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .trading-desk-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+z
+    .image-container {
+        margin: 20px 0;
+    }
+
+    .bars svg {
+        margin-left: -14%;
+    }
+
+    .container-what-do-we-do {
+        flex-direction: column-reverse;
+    }
+    
+    .container-what-do-we-do p {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .bars svg {
+        max-width: 400px!important;
+        display: flex;
+        justify-content: flex-start!important;
+    }
+    .contents button {
+        margin-left: 0!important;
+    }
+}
